@@ -1,0 +1,6 @@
+Dimension,Code,Title,ParentDimension,ParentCode,ParentTitle
+ALCOHOLTYPE,SA_BEER,Beer,,,
+ALCOHOLTYPE,SA_OTHER_ALCOHOL,Other alcoholic beverages,,,
+ALCOHOLTYPE,SA_SPIRITS,Spirits,,,
+ALCOHOLTYPE,SA_TOTAL,All types,,,
+ALCOHOLTYPE,SA_WINE,Wine,,,

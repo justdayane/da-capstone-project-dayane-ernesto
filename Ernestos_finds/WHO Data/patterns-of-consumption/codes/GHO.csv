@@ -1,0 +1,12 @@
+Dimension,Code,Title,ParentDimension,ParentCode,ParentTitle
+GHO,SA_0000001409,"Alcohol, abstainers lifetime (%), age-standardized",,,
+GHO,SA_0000001411,"Alcohol, abstainers past 12 months (%), age-standardized",,,
+GHO,SA_0000001413,"Alcohol, consumers past 12 months (%), age-standardized",,,
+GHO,SA_0000001414,"Alcohol, former drinkers (%), age-standardized",,,
+GHO,SA_0000001739,"Alcohol, heavy episodic drinking (15+) past 30 days (%), age-standardized",,,
+GHO,SA_0000001819,Heavy episodic drinking (youth 15 -19 years) past 30 days (%),,,
+GHO,SA_0000001820,"Heavy episodic drinking (youth 15 -19 years), drinkers only, past 30 days (%)",,,
+GHO,SA_0000001839,"Alcohol, heavy continuous drinkers past year (%)",,,
+GHO,SA_0000001840,"Alcohol, heavy continuous drinkers, drinkers only, past year (%)",,,
+GHO,SA_0000001841,"Alcohol, 15-19 years heavy continuous drinkers past year (%)",,,
+GHO,SA_0000001842,"Alcohol, 15-19 years heavy continuous drinkers, drinkers only, past year (%)",,,

@@ -1,0 +1,60 @@
+Alcohol Consumption Analysis: GenZ vs. Prior Generations in Europe
+Here's a comprehensive data collection framework for your hypothesis.
+
+Generational Cohort Definitions
+First, anchor your analysis to clear birth year ranges:
+GenerationBirth YearsAge in 2025Gen X1965 – 198045 – 60Millennials1981 – 199629 – 44Gen Z1997 – 201213 – 28
+Recommended study period: 2005 – 2024. This window captures Gen Z entering drinking age (roughly 2015+) while giving you a solid baseline of Millennial and Gen X consumption behavior in their equivalent youth years for a fair age-matched comparison — the most important methodological choice here.
+
+Core Indicators to Collect
+Primary consumption metrics
+
+Per capita alcohol consumption in liters of pure alcohol (LPA), broken down by age group
+Drinking prevalence (% of population who drinks) by age cohort
+Heavy episodic drinking / binge drinking rates by age group (a critical metric, as abstinence and binging can coexist)
+Frequency of drinking (daily, weekly, monthly, never) by age group
+Age of drinking initiation trends over time
+
+Beverage type breakdown
+
+Beer, wine, spirits, and RTD (ready-to-drink) share by age group — Gen Z is known to shift toward low/no-alcohol alternatives, and this granularity will reveal it
+
+Contextual & explanatory variables
+
+Alcohol pricing and affordability index (real price over time)
+Minimum legal drinking age per country
+Alcohol advertising restrictions timeline per country
+Cannabis legalization status (a potential substitution effect)
+Mental health indicators by cohort (anxiety, depression rates — linked to sober-curious movement)
+Social media penetration rates by year (a hypothesized behavioral driver)
+GDP per capita and youth unemployment rates (economic stress vs. leisure spending)
+
+
+Data Sources
+Pan-European & WHO sources (start here)
+
+WHO Global Status Report on Alcohol and Health — who.int — provides LPA, prevalence, and heavy drinking rates by country and some age breakdowns
+ESPAD (European School Survey Project on Alcohol and Other Drugs) — espad.org — your best source for youth data; surveyed 15–16 year olds across 35+ European countries every 4 years since 1995
+Eurobarometer surveys — ec.europa.eu/commfrontoffice/publicopinion — attitudinal and behavioral surveys including alcohol, with age group breakdowns
+EHIS (European Health Interview Survey) — Eurostat — household-level survey with alcohol consumption frequency by age, sex, and country
+
+National health & statistics agencies
+
+UK: NHS Digital / OHID "Health Survey for England" and "Smoking, Drinking and Drug Use among Young People"
+Germany: Bundeszentrale für gesundheitliche Aufklärung (BZgA) — youth drug affinity surveys
+France: Santé publique France — Baromètre santé
+Nordic countries: NOMESCO database, and each national institute of public health
+
+Commercial & industry data (for triangulation)
+
+IWSR Drinks Market Analysis — tracks beverage volume by category and has youth market reports (some free summaries)
+Euromonitor / Statista — paid, but university access is common; excellent for beverage-type splits
+
+
+Methodological Notes to Keep in Mind
+
+Age-match your cohorts. Don't compare Gen Z at age 20 today to Millennials at age 35 today. Compare Gen Z at age 20 to Millennials when they were 20. This is the most common analytical error in generational studies.
+Control for COVID-19 (2020–2021). Drinking patterns spiked and then shifted dramatically — treat these as outlier years or include a dummy variable if you're running regression.
+Distinguish abstinence from moderation. A generation can show lower average consumption while having unchanged drinking-occasion intensity. ESPAD and EHIS both let you separate these.
+Country clustering. Europe is not homogeneous — consider grouping into Northern (high spirits, beer), Southern (wine-dominant), and Eastern Europe, as generational trends differ significantly across clusters.
+Panel vs. cross-sectional. ESPAD is your best shot at a repeated cross-sectional design, which is the closest to a longitudinal signal you'll get from public data.

@@ -1,4 +1,4 @@
-location,sex,age,year,precent_of_prevalence,upper_bound,lower_bound,generation
+location,sex,age,year,percent_of_prevalence,upper_bound,lower_bound,generation
 Albania,Male,15-19 years,2010,0.00939928773703,0.0151258320685039,0.0053071841799493,Millennial
 Albania,Female,15-19 years,2010,0.0063881603418738,0.0105020606248548,0.0033928186901085,Millennial
 Albania,Both Sexes,15-19 years,2010,0.00788569,0.012866018,0.004240804,Millennial

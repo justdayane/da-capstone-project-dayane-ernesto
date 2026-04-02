@@ -115,7 +115,7 @@ sex = st.sidebar.selectbox(
 )
 
 # -----------------------------
-# FILTER DATA
+# FILTER DATA (for each graph, include the specific dataframe and it's filters specifics)
 # -----------------------------
 df_filtered = df_clean[
     (df_clean["Country"].isin(countries)) &
@@ -129,6 +129,7 @@ df1_filtered = df1[
     (df1["year"].between(years[0], years[1])) &
     (df1["age"].isin(ages))
 ]
+
 
 
 # -----------------------------
@@ -148,16 +149,16 @@ st.markdown("""
 
 - **AUD** = Alcohol Use Disorders  
 - **Prevalence** = % of population with AUDs  
-- **Gen X** = People born between 1965–1980  
-- **Millennials** = People born between 1981–1996  
-- **Gen Z** = People born between 1997–2012 
+- **Gen X** = People born between 1965–1980 who are now in the Age Group 40-44 years old
+- **Millennials** = People born between 1981–1996 Age Group 30-39 years old
+- **Gen Z** = People born between 1997–2012 Age Group 15-29 years old
 
 </div>
 """, unsafe_allow_html=True)
 
 
 fig1 = px.line(
-    df_clean,
+    df_filtered,
     x="year",
     y="Consumption",
     color="Country",
@@ -175,7 +176,7 @@ st.subheader("🌍 Alcohol Use Disorder (AUD) Prevalence")
   #  )
 
 fig2 = px.choropleth(
-        df1,
+        df1_filtered,
         locations="Country",
         locationmode="country names",
         color="Prevalence",

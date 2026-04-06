@@ -60,10 +60,10 @@ with col3:
 @st.cache_data
 def load_data():
     df = pd.read_csv(
-        "/Users/dayaneribeiro/Documents/Spiced/da-capstone-project-dayane-ernesto/Cleaned Sets/Aggregated_Table_Prevalence_Consumption_Abstention.csv"
+        "../../Cleaned Sets/Aggregated_Table_Prevalence_Consumption_Abstention.csv"
     )
     df1 = pd.read_csv(
-        "/Users/dayaneribeiro/Documents/Spiced/da-capstone-project-dayane-ernesto/Cleaned Sets/consumption_and_prevalence_2005-2020.csv"
+        "../../Cleaned Sets/consumption_and_prevalence_2005-2020.csv"
     )
     return df, df1
 

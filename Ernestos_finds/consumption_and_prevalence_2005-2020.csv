@@ -1,4 +1,4 @@
-location,age,year,percent_of_prevalence,pre_upper_bound,pre_lower_bound,consumption_in_liters
+location,age,year,val,pre_upper_bound,pre_lower_bound,consumption_in_liters
 Albania,15-19 years,2005,0.00774575,0.012590556,0.004331572,4.549919813
 Albania,20-24 years,2005,0.021565437,0.033490409,0.012557763,4.549919813
 Albania,25-29 years,2005,0.027626161,0.038302555,0.018783628,4.549919813

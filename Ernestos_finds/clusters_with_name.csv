@@ -1,0 +1,40 @@
+location,prevalence,liters/capita,abstention_rate,cluster,cluster_num
+Albania,0.02013827425,4.216621309,33.6547352,Abstainer-Dominant Cultures,0
+Andorra,0.0266431619999999,10.52666667,10.2396722,Mainstream Drinking Cultures,1
+Austria,0.038762304375,11.45333333,10.1445933,High-Risk Drinking Cultures,2
+Belarus,0.037897101625,10.25,12.1360961,High-Risk Drinking Cultures,2
+Belgium,0.035462213,8.93,12.1995797,High-Risk Drinking Cultures,2
+Bosnia and Herzegovina,0.02708573275,5.082874861,42.6522785,Abstainer-Dominant Cultures,0
+Bulgaria,0.023763230625,10.73367821,19.0136491,Mainstream Drinking Cultures,1
+Croatia,0.029677811,10.15775909,16.2292063,Mainstream Drinking Cultures,1
+Cyprus,0.02494579275,5.332829382,21.3932338,High Consumption Cultures,3
+Czechia,0.02807225275,13.05,10.5728883,Mainstream Drinking Cultures,1
+Denmark,0.042490707125,9.233333333,11.5976612,High-Risk Drinking Cultures,2
+Estonia,0.024568594375,11.25666667,7.8957311,Mainstream Drinking Cultures,1
+Finland,0.031128190375,8.24,12.004756,High Consumption Cultures,3
+France,0.03322141175,11.13,12.9263214,Mainstream Drinking Cultures,1
+Germany,0.030563236625,10.82,10.8630149,Mainstream Drinking Cultures,1
+Greece,0.024746772625,6.316301689,18.9285251,High Consumption Cultures,3
+Hungary,0.02906262425,10.89,13.7401811,Mainstream Drinking Cultures,1
+Iceland,0.0348810965,7.52,10.7876179,High Consumption Cultures,3
+Ireland,0.049284168875,10.61333333,6.4120675,High-Risk Drinking Cultures,2
+Italy,0.024108564625,7.816666667,14.9497545,High Consumption Cultures,3
+Latvia,0.030319650125,12.91,7.9397062,Mainstream Drinking Cultures,1
+Lithuania,0.030546964,10.62333333,7.6660358,Mainstream Drinking Cultures,1
+Luxembourg,0.033204416875,10.975,4.3722439,Mainstream Drinking Cultures,1
+Malta,0.02565963725,6.845155411,11.6726112,High Consumption Cultures,3
+Netherlands,0.025114203125,8.126666667,12.104577,High Consumption Cultures,3
+North Macedonia,0.021827403,4.384729738,43.4168271,Abstainer-Dominant Cultures,0
+Norway,0.02096765975,6.433333333,12.1153959,High Consumption Cultures,3
+Poland,0.041033101625,10.83,12.5108611,High-Risk Drinking Cultures,2
+Portugal,0.041924111,9.947922933,12.8388146,High-Risk Drinking Cultures,2
+Republic of Moldova,0.02712307925,9.053914402,12.7319235,Mainstream Drinking Cultures,1
+Romania,0.027137756875,10.76666667,11.0656362,Mainstream Drinking Cultures,1
+Russian Federation,0.03859139975,7.27,31.2150719,High Consumption Cultures,3
+Slovakia,0.02941290625,10.17,12.9056522,Mainstream Drinking Cultures,1
+Slovenia,0.03422820025,10.3,12.6041788,Mainstream Drinking Cultures,1
+Spain,0.02305668675,9.923333333,12.098133,Mainstream Drinking Cultures,1
+Sweden,0.042240293875,7.263333333,12.4390202,High-Risk Drinking Cultures,2
+Switzerland,0.035478386875,8.59,9.1057067,High-Risk Drinking Cultures,2
+Ukraine,0.03154527125,5.783333333,15.0924975,High Consumption Cultures,3
+United Kingdom,0.04697924325,9.953333333,12.0880386,High-Risk Drinking Cultures,2

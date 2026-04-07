@@ -60,10 +60,10 @@ with col3:
 @st.cache_data
 def load_data():
     df = pd.read_csv(
-        "/Users/dayaneribeiro/Documents/Spiced/da-capstone-project-dayane-ernesto/Cleaned Sets/Aggregated_Table_Prevalence_Consumption_Abstention.csv"
+        "../../Cleaned Sets/Aggregated_Table_Prevalence_Consumption_Abstention.csv"
     )
     df1 = pd.read_csv(
-        "/Users/dayaneribeiro/Documents/Spiced/da-capstone-project-dayane-ernesto/Cleaned Sets/consumption_and_prevalence_2005-2020.csv"
+        "../../Cleaned Sets/consumption_and_prevalence_2005-2020.csv"
     )
     return df, df1
 
@@ -123,6 +123,9 @@ df_filtered = df_clean[
     (df_clean["age"].isin(ages)) &
     (df_clean["sex"] == sex)
 ]
+df_plot = df_filtered.groupby(
+    ["Country", "year"], as_index=False
+)["Consumption"].mean()
 
 df1_filtered = df1[
     (df1["Country"].isin(countries)) &
@@ -136,7 +139,26 @@ df1_filtered = df1[
 # CHARTS
 # -----------------------------
 st.header("Alright, but what do the numbers say?")
-"Let's have a close look into the data collected from the World Health Organization and the Institute for Health Metrics and Evaluation"
+"Let's have a close look into the data"
+
+st.info("""
+Collected from:  
+**World Health Organization**  
+**Institute for Health Metrics and Evaluation**
+""")
+
+with st.container(border=True):
+    st.subheader("Tools")
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.image("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", width=25)
+        st.markdown("**Python:** Data wrangling, cleaning, EDA and all the charts")
+
+    with col2:
+        st.image("https://streamlit.io/images/brand/streamlit-mark-color.png", width=25)
+        st.markdown("**Streamlit:** This pretty page you see :)")
 
 st.markdown("""
 <div style="
@@ -145,20 +167,26 @@ st.markdown("""
     border-radius: 12px;
     border: 1px solid #e1e5ea;
 ">
-<h4>🤓 But first, some important definitions to help you understand our charts</h4>
 
-- **AUD** = Alcohol Use Disorders  
-- **Prevalence** = % of population with AUDs  
-- **Gen X** = People born between 1965–1980 who are now in the Age Group 40-44 years old
-- **Millennials** = People born between 1981–1996 Age Group 30-39 years old
-- **Gen Z** = People born between 1997–2012 Age Group 15-29 years old
+<h4>🤓 Some important definitions to help you understand our charts</h4>
+
+<p style="text-align:center; font-weight: bold;">
+<span style="color:#4a90e2;"><b>1965 ──── Gen X ──── 1980</b></span>&nbsp;&nbsp;|&nbsp;&nbsp;
+<span style="color:#50c878;"><b>1981 ───── Millennials ───── 1996</b></span>&nbsp;&nbsp;|&nbsp;&nbsp;
+<span style="color:#f5a623;"><b>1997 ──── Gen Z ──── 2012</b></span>
+</p>
+
+<ul>
+<li><b>AUD</b> = Alcohol Use Disorders</li>
+<li><b>Prevalence</b> = % of population with AUDs</li>
+</ul>
 
 </div>
 """, unsafe_allow_html=True)
 
 
 fig1 = px.line(
-    df_filtered,
+    df_plot,
     x="year",
     y="Consumption",
     color="Country",

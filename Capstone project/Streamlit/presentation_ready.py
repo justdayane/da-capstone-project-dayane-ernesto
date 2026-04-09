@@ -54,7 +54,7 @@ st.sidebar.header("🔎 Filters")
 selected_countries = st.sidebar.multiselect(
     "Select Countries",
     options=sorted(df_clean["Country"].unique()),
-    default=["Germany", "France", "Italy", "Czechia", "Ireland"]
+    default=["Germany", "Albania", "Italy", "Czechia", "Ireland"]
 )
 
 years = st.sidebar.slider(
@@ -167,6 +167,11 @@ with tab_home:
 
     st.header("Alright, but what do the numbers say?")
 
+    st.info("""
+Data collected from:  
+**World Health Organization**  
+**Institute for Health Metrics and Evaluation**
+""")
     
     st.markdown("""
 <div style="
@@ -193,24 +198,36 @@ with tab_home:
 </div>
 """, unsafe_allow_html=True)
     
-    # Line chart - global
+    # Histogram: data overview for clusters
+    fig = make_subplots(rows=1, cols=3,
+                    subplot_titles=['Distribution of Population with Alcohol Use Disorders',
+                                    'Liters/Capita Distribution',
+                                    'Abstention Rate Distribution'])
+    fig.add_trace(go.Histogram(x=prev_avg['precent_of_prevalence'], nbinsx=10,marker_color='#4182D8'),row=1, col=1)
+    fig.add_trace(go.Histogram(x=con_avg['NumericValue'], nbinsx=10,marker_color='#C85C8E'), row=1, col=2)
+    fig.add_trace(go.Histogram(x=abs_avg['NumericValue'], nbinsx=10,marker_color='#4E9B30'), row=1, col=3)
+
+
+    fig.update_layout(
+    title='Distribution of Key variables - European Drinking Patterns',
+    plot_bgcolor='white',
+    showlegend=False,
+    bargap=0.05,
+    height=400,
+    width=1200
+)
+    fig.update_xaxes(showgrid=False)
+    fig.update_xaxes(title_text= '% of population with AUD', row=1, col=1,tickformat=".0%")
+    fig.update_xaxes(title_text='Liters of Pure Alcohol', row=1, col=2)
+    fig.update_xaxes(title_text='% of abstainers in Population', row=1, col=3,ticksuffix="%")
+    fig.update_yaxes(showgrid=True, gridcolor='lightgrey', title_text='Count of Countries')
+
+    st.plotly_chart(fig, use_container_width=True)
+
+     # Line chart - global
     fig1 = px.line(df_plot, x="year", y="Consumption", color="Country")
     fig1.update_yaxes(rangemode="tozero")
     st.plotly_chart(fig1, use_container_width=True)
-
-    # Histogram: data overview for clusters
-    fig = make_subplots(rows=1, cols=3,
-        subplot_titles=[
-            'AUD Prevalence',
-            'Consumption',
-            'Abstention Rate'
-        ])
-
-    fig.add_trace(go.Histogram(x=prev_avg['precent_of_prevalence']), row=1, col=1)
-    fig.add_trace(go.Histogram(x=con_avg['NumericValue']), row=1, col=2)
-    fig.add_trace(go.Histogram(x=abs_avg['NumericValue']), row=1, col=3)
-
-    st.plotly_chart(fig, use_container_width=True)
 
     # Clusters 3D
     fig2 = px.scatter_3d(cluster_df1,
@@ -316,13 +333,13 @@ with tab_gen:
     'Italy': '#9467bd'
 }
 
-    for country in slope_chart['location']:
+    for country in slope_chart['location'].unique():
         val_2010 = slope_chart.loc[slope_chart['location'] == country, '2010'].values[0]
         val_2019 = slope_chart.loc[slope_chart['location'] == country, '2019'].values[0]
         color = colors.get(country, 'grey')
 
     # Draw line
-    fig6.add_trace(go.Scatter(
+        fig6.add_trace(go.Scatter(
         x=[2010, 2019],
         y=[val_2010, val_2019],
         mode='lines+markers',
@@ -333,7 +350,7 @@ with tab_gen:
     ))
 
     # Left label
-    fig6.add_annotation(
+        fig6.add_annotation(
         x=2009.8, y=val_2010,
         text=f'{country}: {val_2010*100:.2f}%',
         xanchor='right', showarrow=False,
@@ -342,7 +359,7 @@ with tab_gen:
     )
 
     # Right label
-    fig6.add_annotation(
+        fig6.add_annotation(
         x=2019.2, y=val_2019,
         text=f'{country}: {val_2019*100:.2f}%',
         xanchor='left', showarrow=False,
@@ -350,28 +367,30 @@ with tab_gen:
         yshift=offsets.get(country,0) *2000
     )
 
-    fig6.update_layout(
-    title=dict(text="The '20-Year-Old' Risk Profile: 2010 (Millennial) vs. 2019 (Gen Z)", font=dict(size=14)),
-    plot_bgcolor='white',
-    showlegend=False,
-    height=600,
-    width=900,
-    xaxis=dict(
+        fig6.update_layout(
+        title=dict(text="The '20-Year-Old' Risk Profile: 2010 (Millennial) vs. 2019 (Gen Z)", font=dict(size=14)),
+        plot_bgcolor='white',
+        showlegend=False,
+        height=600,
+        width=900,
+        xaxis=dict(
         tickvals=[2010, 2019],
         ticktext=['Millennial (in 2010)', 'Gen Z (in 2019)'],
         showgrid=False,
         range=[2007, 2022]
     ),
-    yaxis=dict(
+        yaxis=dict(
         tickformat='.2%',
         showgrid=True,
         gridcolor='lightgrey',
         griddash='dash',
         gridwidth=1,
-        range=[0, slope_chart[['2010', '2019']] * 1.2]  # 20% headroom above max value
+        range=[0, slope_chart[['2010', '2019']].values.max() * 1.2],
+        rangemode="tozero" 
     ),
-    margin=dict(l=200, r=200, t=60, b=60)
+        margin=dict(l=200, r=200, t=60, b=60)
 )
+       
     st.plotly_chart(fig6, use_container_width=True)
 
 # =============================
@@ -493,25 +512,10 @@ with tab_fun:
     height=600
 )
     fig9.update_xaxes(showgrid=True, gridcolor='lightgrey', gridwidth=0.5)
-    fig9.update_yaxes(showgrid=True, gridcolor='lightgrey', gridwidth=0.5)
-
+    fig9.update_yaxes(showgrid=True, gridcolor='lightgrey', gridwidth=0.5, tickformat=".1%",title=dict(standoff=20))
+    
     st.plotly_chart(fig9, use_container_width=True)  
 
-    st.markdown("""
-
-
-                ### Key Insights
-
-- Younger generations drink less  
-- Cultural differences matter
- 
-""")
-
-    st.info("""
-Data collected from:  
-**World Health Organization**  
-**Institute for Health Metrics and Evaluation**
-""")
 
     with st.container(border=True):
             st.subheader("Tools")

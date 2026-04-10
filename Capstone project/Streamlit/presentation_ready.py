@@ -20,7 +20,7 @@ def load_data():
     prev_avg = pd.read_csv('../../Cleaned Sets/prevalence_histogram.csv')
     con_avg = pd.read_csv('../../Cleaned Sets/consumption_histogram.csv')
     abs_avg = pd.read_csv('../../Cleaned Sets/abstention_histogram.csv')
-    cluster_df1 = pd.read_csv('../../Ernestos_finds/clusters_with_name.csv')
+    cluster_df1 = pd.read_csv('../../Cleaned Sets/clusters_scaled.csv')
     snapshot = pd.read_csv('../../Cleaned Sets/2019_snapshot_prevalence_of_generations.csv')
     slope_chart = pd.read_csv('../../Cleaned Sets/slope_chart_df_clean.csv')
     beerdf = pd.read_csv('../../Cleaned Sets/prevalence_vs_beer_clean.csv')
@@ -229,15 +229,36 @@ Data collected from:
     fig1.update_yaxes(rangemode="tozero")
     st.plotly_chart(fig1, use_container_width=True)
 
-    # Clusters 3D
-    fig2 = px.scatter_3d(cluster_df1,
-        x='liters/capita',
-        y='abstention_rate',
-        z='prevalence',
-        color='cluster',
-        hover_name='location'
-    )
-    st.plotly_chart(fig2, use_container_width=True)
+
+    # Clusters New
+    fig10 = px.scatter_3d(cluster_df1, 
+    x='Prevalence_Scaled', 
+    y='Liters_per_Drinker_Scaled', 
+    z='Abstinence_Rate_Scaled',  # Fixed: Added '_Rate'
+    color='Cluster_Name',
+    hover_name='Country',
+    hover_data={
+        'Cluster': False, 
+        'Prevalence': ':.2f', 
+        'Liters_per_Drinker': ':.2f', 
+        'Abstinence_Rate': ':.2f'
+    },
+    title='Decade Average Alcohol Impact Clusters (2010-2019)',
+    labels={
+        'Prevalence_Scaled': 'AUD Prevalence',
+        'Liters_per_Drinker_Scaled': 'Intensity (L/Drinker)',
+        'Abstinence_Rate_Scaled': 'Abstinence Rate' # Fixed: Added '_Rate'
+    },
+    opacity=0.8,
+    height=800
+)
+
+    fig10.update_layout(scene=dict(
+    xaxis_title='Health Impact (AUD)',
+    yaxis_title='Drinking Intensity',
+    zaxis_title='Abstinence Rate'
+))
+    st.plotly_chart(fig10, use_container_width=True)
 
     # Focus countries
     focus_countries = ["Germany", "Ireland"]
@@ -536,5 +557,5 @@ with tab_fun:
 Gen Z is not just drinking less — they are drinking differently.
 The data doesn't allow us to confirm or deny, but poses questions for future research.  
 
-Resilience: The countries leading the trend aren't the ones with the highest prices(policy) (Ireland), or have ingraned drinking culture (Germany), but the ones where the youth actively rejected the adult drinking culture (Czechia).
+Resilience: The countries leading the trend are not the ones with the highest prices (Ireland), or have ingraned drinking culture (Germany), but the ones where the youth actively rejected the adult drinking culture (Czechia).
 """)
